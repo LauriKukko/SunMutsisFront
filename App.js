@@ -1,24 +1,19 @@
 import React, { Component } from 'react';
 import {createStackNavigator, createAppContainer} from 'react-navigation';
 import HomeScreen from "./src/screens/HomeScreen";
-import {Button} from "react-native-web";
-
+import MainComponent from "./src/components/MainComponent";
 
 
 const navigator = createStackNavigator(
     {
-
-    Home: HomeScreen
+        Home: HomeScreen,
+        MainC: MainComponent
     },
     {
-      initialRouteName: 'Home',
-      defaultNavigationOptions: {
-
-        title: 'Sun Mutsis'
-
-      }
+        initialRouteName: 'Home',
+        defaultNavigationOptions: {
+            title: 'Sun Mutsis'
+        }
     }
-
 );
 export default createAppContainer(navigator);
-
