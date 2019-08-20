@@ -3,6 +3,7 @@ import {createStackNavigator, createAppContainer} from 'react-navigation';
 import HomeScreen from './src/screens/HomeScreen';
 import {Button} from 'react-native';
 import FontAwesome, {SolidIcons} from "react-native-fontawesome";
+import MainComponent from "./src/components/MainComponent";
 
 const navigator = createStackNavigator(
     {
@@ -17,9 +18,8 @@ const navigator = createStackNavigator(
             headerRight:<Button onPress={() =>alert('You tapped the button!')}title="Alert"/>
         }
     }
-
 );
 
-
 export default createAppContainer(navigator);
+
 
