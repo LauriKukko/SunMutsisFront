@@ -1,25 +1,15 @@
 import React, { Component } from 'react';
-import {createStackNavigator, createAppContainer} from 'react-navigation';
-import HomeScreen from './src/screens/HomeScreen';
-import {Button} from 'react-native';
-import FontAwesome, {SolidIcons} from "react-native-fontawesome";
-import MainComponent from "./src/components/MainComponent";
+import {View} from 'react-native';
+import Navigation from './src/screens/Navigation';
 
-const navigator = createStackNavigator(
-    {
-    Home: HomeScreen
-    },
-    {
-
-      initialRouteName: 'Home',
-        defaultNavigationOptions:{
-          title: 'Sun Mutsis',
-            headerLeft: <Button onPress={() => props.navigation.navigate('tähän halutun screenin nimi')} title= "MENU" />,
-            headerRight:<Button onPress={() =>alert('You tapped the button!')}title="Alert"/>
-        }
+class App extends React.Component{
+    render() {
+        return (
+            <View style={{flex:1}}>
+                <Navigation/>
+            </View>
+        );
     }
-);
+}
 
-export default createAppContainer(navigator);
-
-
+export default App;
