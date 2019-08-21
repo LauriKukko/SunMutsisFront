@@ -1,6 +1,8 @@
 import React from 'react';
 import {Text, View, TouchableOpacity, StyleSheet} from 'react-native';
 
+
+// Propseina todo:n päivämäärä, "nimi" sekä delete-näppäin (Tuomas)
 export default class Note extends React.Component {
     render() {
         return (
@@ -9,7 +11,6 @@ export default class Note extends React.Component {
 
                 <Text style={styles.noteText}>{this.props.val.date}</Text>
                 <Text style={styles.noteText}>{this.props.val.note}</Text>
-
 
                 <TouchableOpacity onPress={this.props.deleteMethod} style={styles.noteDelete}>
                     <Text style={styles.noteDeleteText}>D</Text>

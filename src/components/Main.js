@@ -1,6 +1,9 @@
 import React from 'react';
 import {Text, View, TextInput, ScrollView, TouchableOpacity, StyleSheet} from 'react-native';
 
+
+// Main- ja Note -luokat korvaavat aiemman MainComponent -luokan (Tuomas)
+// Note.js:ssä propseina näytettävien todo:n päivämäärä, "nimi" sekä delete-näppäin (Tuomas)
 import Note from './Note';
 
 export default class Main extends React.Component {
@@ -13,6 +16,8 @@ export default class Main extends React.Component {
         }
     }
 
+
+    // Näytettävät todo:t sekä niiden poistamisen toteuttava "D"-näppäin (Tuomas)
     render() {
         let notes = this.state.noteArray.map((val, key) => {
             return <Note key={key} keyval={key} val={val}
