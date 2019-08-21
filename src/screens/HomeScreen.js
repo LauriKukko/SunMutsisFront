@@ -1,21 +1,30 @@
 import React, {Component} from 'react';
-import { Text, StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Button} from 'react-native';
 import NavBar from "../components/NavBar";
 import MainComponent from "../components/MainComponent";
 import Footer from "../components/Footer";
 
+
 export default class HomeScreen extends React.Component {
+    static navigationOptions =({ navigate }) => {
+        return {
+            title: 'RyönäRoope',
+            headerRight: <Button onPress={() => props.navigation.navigate('Menu')} title="MENU"/>
+        };
+    };
     render() {
+        const {navigate}=this.props.navigation;
     return (
         <View>
             <NavBar/>
+            <Button onPress={()=>navigate('Menu')}title={'Menuscreenille'}/>
             {/*<Text style={styles.saatanallinenTeksti}>Saatana</Text>*/}
             <MainComponent/>
             {/*<Text style={styles.saatanallinenTeksti}>Ystävä</Text>*/}
             <Footer/>
         </View>
     );
-};
+}};
 const styles = StyleSheet.create({
     text:{
         fontSize: 30
@@ -26,4 +35,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default HomeScreen;
+

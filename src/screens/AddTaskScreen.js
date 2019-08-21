@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-
 import { View, StyleSheet, Button, TextInput } from 'react-native';
-
 import t from 'tcomb-form-native';
 
 const Form = t.form.Form;
@@ -64,9 +62,6 @@ export default class AddTaskScreen extends Component {
         deadline:"",
         sijainti:""
     };
-
-    render() {
-        return (
             <View style={styles.container}>
                 <Form
                     ref={c => this._form = c}
@@ -92,3 +87,4 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffffff',
     },
 });
+
