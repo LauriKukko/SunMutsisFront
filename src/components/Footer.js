@@ -1,17 +1,20 @@
-import React from 'react';
-import {Text, StyleSheet, Button, View, TouchableHighlight} from 'react-native';
+import React, {Component}  from 'react';
+import {Text, StyleSheet, View, TouchableHighlight, Button} from 'react-native';
 
-const Footer = ()  => (
-    <View>
-        <TouchableHighlight style={styles.addButton}
-                            underlayColor='#ff7043' onPress={()=>{console.log('You pressed the blue + button')}}>
-            <Text style={{fontSize: 50, color: 'white'}}>+</Text>
-        </TouchableHighlight>
-    </View>
-);
+export default class Footer extends Component{
+    render() {
+        return (
+            <View>
+               <TouchableHighlight style={styles.addButton} underlayColor='#ff7043' onPress={()=>{console.log('pressed')}}>
+                    <Text style={{fontSize: 50, color: 'white'}}>+</Text>
+                </TouchableHighlight>
+            </View>
+        );
+    }
+}
 
 const styles = StyleSheet.create({
-    addButton: {
+        addButton: {
         backgroundColor: '#56e4ff',
         borderColor: '#53d8ff',
         borderWidth: 1,
@@ -36,5 +39,3 @@ const styles = StyleSheet.create({
         }
     },
 });
-
-export default Footer;
