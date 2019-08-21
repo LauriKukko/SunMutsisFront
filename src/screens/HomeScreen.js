@@ -3,6 +3,7 @@ import { StyleSheet, View, Button} from 'react-native';
 import NavBar from "../components/NavBar";
 import MainComponent from "../components/MainComponent";
 import Footer from "../components/Footer";
+import Main from "../components/Main";
 
 
 export default class HomeScreen extends React.Component {
@@ -13,6 +14,7 @@ export default class HomeScreen extends React.Component {
         };
     };
     render() {
+
         const {navigate}=this.props.navigation;
     return (
         <View>
@@ -25,6 +27,7 @@ export default class HomeScreen extends React.Component {
         </View>
     );
 }};
+
 const styles = StyleSheet.create({
     text:{
         fontSize: 30

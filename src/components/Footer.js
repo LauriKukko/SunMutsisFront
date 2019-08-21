@@ -1,7 +1,6 @@
 import React, {Component}  from 'react';
 import {Text, StyleSheet, View, TouchableHighlight, Button} from 'react-native';
 
-
 export default class Footer extends Component{
     render() {
         return (
@@ -19,12 +18,16 @@ const styles = StyleSheet.create({
         backgroundColor: '#56e4ff',
         borderColor: '#53d8ff',
         borderWidth: 1,
-        height: 100,
-        width: 100,
+        height: 50,
+        width: 50,
         borderRadius: 50,
         alignItems: 'center',
         justifyContent: 'center',
-        position: 'relative',
+        position: 'absolute',
+        bottom: -140,
+        // left: 0,
+        right: 10,
+        zIndex: 11,
         // top: 480,
         // left: 290,
         shadowColor: "#000000",
