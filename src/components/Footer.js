@@ -1,14 +1,13 @@
 import React from 'react';
 import {Text, StyleSheet, Button, View, TouchableHighlight} from 'react-native';
 
-
 const Footer = ()  => (
-   <View>
-       <TouchableHighlight style={styles.addButton}
-                              underlayColor='#ff7043' onPress={()=>{console.log('pressed')}}>
-       <Text style={{fontSize: 50, color: 'white'}}>+</Text>
-   </TouchableHighlight>
-   </View>
+    <View>
+        <TouchableHighlight style={styles.addButton}
+                            underlayColor='#ff7043' onPress={()=>{console.log('You pressed the blue + button')}}>
+            <Text style={{fontSize: 50, color: 'white'}}>+</Text>
+        </TouchableHighlight>
+    </View>
 );
 
 const styles = StyleSheet.create({
@@ -16,12 +15,16 @@ const styles = StyleSheet.create({
         backgroundColor: '#56e4ff',
         borderColor: '#53d8ff',
         borderWidth: 1,
-        height: 100,
-        width: 100,
+        height: 50,
+        width: 50,
         borderRadius: 50,
         alignItems: 'center',
         justifyContent: 'center',
-        position: 'relative',
+        position: 'absolute',
+        bottom: -140,
+        // left: 0,
+        right: 10,
+        zIndex: 11,
         // top: 480,
         // left: 290,
         shadowColor: "#000000",

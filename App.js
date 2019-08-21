@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import {createStackNavigator, createAppContainer} from 'react-navigation';
 import HomeScreen from './src/screens/HomeScreen';
 import {Button} from 'react-native';
-import FontAwesome, {SolidIcons} from "react-native-fontawesome";
-import MainComponent from "./src/components/MainComponent";
+// import FontAwesome, {SolidIcons} from "react-native-fontawesome";
+// import MainComponent from "./src/components/MainComponent";
 
 const navigator = createStackNavigator(
     {
