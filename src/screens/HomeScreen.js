@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { StyleSheet, View, Button} from 'react-native';
 import NavBar from "../components/NavBar";
-import MainComponent from "../components/MainComponent";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
 
@@ -9,7 +8,7 @@ import Main from "../components/Main";
 export default class HomeScreen extends React.Component {
     static navigationOptions =({ navigate }) => {
         return {
-            title: 'RyönäRoope',
+            title: 'Home Screen',
             headerRight: <Button onPress={() => props.navigation.navigate('Menu')} title="MENU"/>
         };
     };
@@ -21,7 +20,7 @@ export default class HomeScreen extends React.Component {
             <NavBar/>
             <Button onPress={()=>navigate('Menu')}title={'Menuscreenille'}/>
             {/*<Text style={styles.saatanallinenTeksti}>Saatana</Text>*/}
-            <MainComponent/>
+            <Main/>
             {/*<Text style={styles.saatanallinenTeksti}>Ystävä</Text>*/}
             <Footer/>
         </View>

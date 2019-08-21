@@ -41,7 +41,7 @@ export default class Main extends React.Component {
                 </View>
 
                 <TouchableOpacity onPress={ this.addNote.bind(this) } style={styles.addButton}>
-                    <Text style={styles.addButtonText}>+</Text>
+                    <Text style={styles.addButtonText}> > </Text>
                 </TouchableOpacity>
 
             </View>
@@ -95,8 +95,8 @@ const styles = StyleSheet.create({
         position: 'absolute',
         // zIndex: 11,
         right: 20,
-        bottom: -65,
-        backgroundColor: 'red',
+        bottom: 0,
+        backgroundColor: 'black',
         width: 60,
         height: 60,
         borderRadius: 50,
@@ -106,6 +106,6 @@ const styles = StyleSheet.create({
     },
     addButtonText: {
         color: '#fff',
-        fontSize: 24,
+        fontSize: 32,
     },
 });
