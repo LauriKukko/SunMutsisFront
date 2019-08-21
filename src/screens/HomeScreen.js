@@ -6,13 +6,8 @@ import Footer from "../components/Footer";
 import Main from "../components/Main";
 
 
-export default class HomeScreen extends React.Component {
-    static navigationOptions =({ navigate }) => {
-        return {
-            title: 'RyönäRoope',
-            headerRight: <Button onPress={() => props.navigation.navigate('Menu')} title="MENU"/>
-        };
-    };
+export default class HomeScreen extends Component {
+
     render() {
 
         const {navigate}=this.props.navigation;
