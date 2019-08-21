@@ -1,10 +1,11 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, {Component} from 'react';
+import { Text, StyleSheet, View } from 'react-native';
 import NavBar from "../components/NavBar";
 import MainComponent from "../components/MainComponent";
 import Footer from "../components/Footer";
 
-const HomeScreen = () => {
+export default class HomeScreen extends React.Component {
+    render() {
     return (
         <View>
             <NavBar/>
@@ -24,4 +25,5 @@ const styles = StyleSheet.create({
         color: 'red'
     }
 });
+
 export default HomeScreen;
