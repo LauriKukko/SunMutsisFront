@@ -62,6 +62,8 @@ export default class AddTaskScreen extends Component {
         deadline:"",
         sijainti:""
     };
+    render() {
+        return(
             <View style={styles.container}>
                 <Form
                     ref={c => this._form = c}
