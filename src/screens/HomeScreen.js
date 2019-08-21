@@ -33,4 +33,6 @@ const styles = StyleSheet.create({
         fontSize: 50,
         color: 'red'
     }
-})
+});
+
+
