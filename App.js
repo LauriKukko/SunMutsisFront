@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import {View} from 'react-native';
 import Navigation from './src/screens/Navigation';
-
-class App extends React.Component{
+import Header from "./src/components/Header";
+export default class App extends Component{
     render() {
         return (
             <View style={{flex:1}}>
+                <Header/>
                 <Navigation/>
             </View>
         );
     }
 }
-export default App;
+
 
