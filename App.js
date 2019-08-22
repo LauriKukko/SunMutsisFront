@@ -9,7 +9,6 @@ class App extends React.Component{
                 <Navigation/>
             </View>
         );
-
     }
 }
 export default App;

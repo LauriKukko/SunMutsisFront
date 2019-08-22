@@ -13,7 +13,6 @@ export default class Footer extends Component{
     }
 }
 
-
 const styles = StyleSheet.create({
         addButton: {
         backgroundColor: '#56e4ff',
