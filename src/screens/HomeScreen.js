@@ -10,15 +10,16 @@ import Footer from "../components/Footer";
 export default class HomeScreen extends Component {
 
     render() {
-
-
         const {navigate}=this.props.navigation;
+        const tasks = this.props.navigation.getParam('tasks','ei tullu mitään');
+
+
     return (
         <View>
             <NavBar/>
             <Button onPress={()=>navigate('Menu')}title={'Menuscreenille'}/>
             {/*<Text style={styles.saatanallinenTeksti}>Saatana</Text>*/}
-            <MainComponent/>
+            <MainComponent tasks={tasks}/>
             {/*<Text style={styles.saatanallinenTeksti}>Ystävä</Text>*/}
             <Footer/>
         </View>

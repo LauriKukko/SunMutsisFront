@@ -6,38 +6,19 @@ export default class MainComponent extends Component {
         alert('I... am... DELETE')
     }
 
-    state = {todolista: [
-        {id: '1', todo: 'Tämä on todo YKSI'},
-        {id: '2', todo: 'Tämä on todo KAKSI'},
-        {id: '3', todo: 'Tämä on todo KOLME'},
-        {id: '4', todo: 'Tämä on todo NELJÄ'},
-        {id: '5', todo: 'Tämä on todo VIISI'},
-        {id: '6', todo: 'Tämä on todo KUUSI'},
-    ]};
-
     render() {
         return (
             <View style={styles.container}>
                 <ScrollView style={styles.scrollContainer}>
                 <FlatList
-                    data={this.state.todolista}
-                    keyExtractor={(item, index) => item.id}
-                    renderItem={({item}) => <Text style={styles.item}>{item.id}: {item.todo}</Text>}
+                    data={this.props.tasks}
+                    keyExtractor={(item)=> JSON.stringify(item._id)}
+                    renderItem={({item}) => <Text style={styles.item}>{JSON.stringify(item.task)}</Text>}
                 />
                 <TouchableOpacity onPress={this.onPressDeleteButton} style={styles.noteDelete}>
                     <Text style={styles.noteDeleteText}>Delete</Text>
                 </TouchableOpacity>
-
-
                 </ScrollView>
-                <View>
-                    <TextInput style={styles.textInput}
-                    placeholder='Text Input -kenttä'
-                    placeholderTextColor='white'
-                    underlineColorAndroid='transparent'
-                    >
-                    </TextInput>
-                </View>
             </View>
 
 
