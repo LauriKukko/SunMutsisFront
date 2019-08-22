@@ -15,7 +15,6 @@ export default class Main extends React.Component {
                 {date: '2019/8/22', note: 'Tämä on todo YKSI',},
                 {date: '2019/8/22', note: 'Tämä on todo KAKSI'},
                 {date: '2019/8/22', note: 'Tämä on todo KOLME'},
-                {date: '2019/8/22', note: 'Tämä on todo NELJÄ'},
             ],
             noteText: '',
         }
@@ -31,42 +30,6 @@ export default class Main extends React.Component {
 
         return (
             <View>
-                {/*<CheckBox*/}
-                {/*    title='Click Here'*/}
-                {/*    checked={this.state.checked}*/}
-                {/*/>*/}
-
-                {/*<CheckBox*/}
-                {/*    center*/}
-                {/*    title='Click Here'*/}
-                {/*    checked={this.state.checked}*/}
-                {/*/>*/}
-
-                {/*<CheckBox*/}
-                {/*    center*/}
-                {/*    title='Click Here'*/}
-                {/*    checkedIcon='dot-circle-o'*/}
-                {/*    uncheckedIcon='circle-o'*/}
-                {/*    checked={this.state.checked}*/}
-                {/*/>*/}
-
-                {/*<CheckBox*/}
-                {/*    center*/}
-                {/*    title='Click Here to Remove This Item'*/}
-                {/*    iconRight*/}
-                {/*    iconType='material'*/}
-                {/*    checkedIcon='clear'*/}
-                {/*    uncheckedIcon='add'*/}
-                {/*    checkedColor='red'*/}
-                {/*    checked={this.state.checked}*/}
-                {/*/>*/}
-
-                {/*<CheckBox*/}
-                {/*    checkedIcon={<Image source={require('../checked.png')} />}*/}
-                {/*    uncheckedIcon={<Image source={require('../unchecked.png')} />}*/}
-                {/*    checked={this.state.checked}*/}
-                {/*    onPress={() => this.setState({checked: !this.state.checked})}*/}
-                {/*/>*/}
                 <ScrollView style={styles.scrollContainer}>
                     {notes}
                 </ScrollView>

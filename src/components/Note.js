@@ -1,17 +1,42 @@
 import React from 'react';
-import {Text, View, TouchableOpacity, StyleSheet} from 'react-native';
+import {Text, View, TouchableOpacity, StyleSheet, CheckBox} from 'react-native';
 
 
 // Propseina todo:n päivämäärä, "nimi" sekä delete-näppäin (Tuomas)
 export default class Note extends React.Component {
+
+    //Constructor luotu pelkästään CheckBoxin toiminnallisuuden toteuttamisen vuoksi.
+    // CheckBoxin klikkaaminen toteuttaa "checkBoxText"-funktion.
+    // Funktio tarkistaa CheckBoxin tämänhetkisen staten, ja muuttaa sen käänteiseksi,
+    // eli Truesta False ja Falsesta True. (Tuomas)
+    constructor() {
+        super();
+        this.state = {
+            check: true
+        }
+    }
+
+    checkBoxTest() {
+        this.setState({
+            check:!this.state.check
+        })
+    }
+
+    painaTaskia() {
+        alert('moro')
+    }
+
     render() {
         return (
 
             <View key={this.props.keyval} style={styles.note}>
 
+                <CheckBox style={styles.checkbox} value={this.state.check} onChange={()=> this.checkBoxTest() } />
+
+                <TouchableOpacity onPress={ this.painaTaskia.bind(this)} >
                 <Text style={styles.noteText}>{this.props.val.date}</Text>
                 <Text style={styles.noteText}>{this.props.val.note}</Text>
-
+                </TouchableOpacity>
                 <TouchableOpacity onPress={this.props.deleteMethod} style={styles.noteDelete}>
                     <Text style={styles.noteDeleteText}>X</Text>
                 </TouchableOpacity>
@@ -49,5 +74,8 @@ const styles = StyleSheet.create({
         color: 'white',
         fontWeight: 'bold',
         fontSize: 18,
+    },
+    checkbox: {
+        // backgroundColor: 'red',
     }
 });
