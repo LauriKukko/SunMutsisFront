@@ -3,7 +3,7 @@ import { StyleSheet, View, Button, BackHandler} from 'react-native';
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
-import AddTaskScreen from "./AddTaskScreen";
+
 
 
 export default class HomeScreen extends Component {
