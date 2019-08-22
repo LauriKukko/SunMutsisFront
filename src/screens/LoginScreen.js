@@ -5,11 +5,11 @@ import { Text, View,Button } from 'react-native';
 
 export default class LoginScreen extends Component {
     render() {
-        const {navigate}=this.props.navigation;
+        const {replace}=this.props.navigation;
         return (
             <View>
                 <Text>LOGIN</Text>
-                <Button onPress={()=>navigate('Home')}title={'HomeScreenille'}/>
+                <Button onPress={()=>replace('Home')}title={'HomeScreenille'}/>
             </View>
         )};
 
