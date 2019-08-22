@@ -8,134 +8,25 @@ import Note from './Note';
 
 export default class Main extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            noteArray: [
-                {date: '2019/8/22', note: 'Tämä on todo YKSI',},
-                {date: '2019/8/22', note: 'Tämä on todo KAKSI'},
-                {date: '2019/8/22', note: 'Tämä on todo KOLME'},
-                {date: '2019/8/22', note: 'Tämä on todo NELJÄ'},
-            ],
-            noteText: '',
-        }
-    }
-
-
     // Näytettävät todo:t sekä niiden poistamisen toteuttava "D"-näppäin (Tuomas)
     render() {
-        let notes = this.state.noteArray.map((val, key) => {
+        const tasks = this.props.tasks;
+        let notes = tasks.map((val, key) => {
             return <Note key={key} keyval={key} val={val}
                          deleteMethod={ () => this.onPressDeleteButton() } />
         });
 
         return (
             <View>
-                {/*<CheckBox*/}
-                {/*    title='Click Here'*/}
-                {/*    checked={this.state.checked}*/}
-                {/*/>*/}
-
-                {/*<CheckBox*/}
-                {/*    center*/}
-                {/*    title='Click Here'*/}
-                {/*    checked={this.state.checked}*/}
-                {/*/>*/}
-
-                {/*<CheckBox*/}
-                {/*    center*/}
-                {/*    title='Click Here'*/}
-                {/*    checkedIcon='dot-circle-o'*/}
-                {/*    uncheckedIcon='circle-o'*/}
-                {/*    checked={this.state.checked}*/}
-                {/*/>*/}
-
-                {/*<CheckBox*/}
-                {/*    center*/}
-                {/*    title='Click Here to Remove This Item'*/}
-                {/*    iconRight*/}
-                {/*    iconType='material'*/}
-                {/*    checkedIcon='clear'*/}
-                {/*    uncheckedIcon='add'*/}
-                {/*    checkedColor='red'*/}
-                {/*    checked={this.state.checked}*/}
-                {/*/>*/}
-
-                {/*<CheckBox*/}
-                {/*    checkedIcon={<Image source={require('../checked.png')} />}*/}
-                {/*    uncheckedIcon={<Image source={require('../unchecked.png')} />}*/}
-                {/*    checked={this.state.checked}*/}
-                {/*    onPress={() => this.setState({checked: !this.state.checked})}*/}
-                {/*/>*/}
                 <ScrollView style={styles.scrollContainer}>
                     {notes}
                 </ScrollView>
-
-                <View style={styles.footer}>
-                    <TextInput style={styles.textInput}
-                        onChangeText={(noteText) => this.setState({noteText})}
-                        value={this.state.noteText}
-                        placeholder='Kirjoita tähän todo'
-                        placeholderTextColor='white'
-                        underlindeColorAndroid='transparent'>
-                    </TextInput>
-                </View>
-
-                <TouchableOpacity onPress={ this.onPressAddButton.bind(this)  }
-                                  style={styles.addButton}>
-                    <Text style={styles.addButtonText}> > </Text>
-                </TouchableOpacity>
-
             </View>
         );
     }
 
-    // Tehtävän lisäämisen toteuttava funktio. Tämän päivän päivämäärä luodaan automaattisesti (Tuomas)
-    addNote() {
-        if (this.state.noteText) {
-
-            var paivamaara = new Date();
-            this.state.noteArray.push({
-                'date': paivamaara.getFullYear() +
-                "/" + (paivamaara.getMonth() +1) +
-                "/" + paivamaara.getDate(),
-                'note': this.state.noteText
-            });
-            this.setState({ noteArray: this.state.noteArray })
-            this.setState({ noteText: '' });
-        }
-    }
-
-    // Alert -ilmoitus, kun tehtävä on lisätty
-    alertNoteAdded() {
-        alert('You ADDED a NEW task!')
-    }
-
-    // "Lisää tehtävä" -nappulan painalluksesta toteutuva funktio, joka toteuttaa
-    // addNote- ja alertNoteAdded -funktiot (Tuomas)
-    onPressAddButton() {
-        this.addNote();
-        this.alertNoteAdded();
-    }
-
-    // Yksittäisen poistamisen toteuttava funktio (Tuomas)
-    deleteNote(key) {
-        this.state.noteArray.splice(key, 1);
-        this.setState({ noteArray: this.state.noteArray })
-    }
-
-    // Alert -ilmoitus, kun tehtävä poistetaan (Tuomas)
-    alertNoteDeleted() {
-        alert('You DELETED a task! Did you really complete it? Be honest!')
-    }
-
-    // POISTAA TÄLLÄ HETKELLÄ AINA ENSIMMÄISEN TEHTÄVÄN
-    // Ilman alertia saan oikean tehtävän poistamisen toteutettua (Tuomas)
-    // Funktio yhdistää "Poista tehtävä" ja "Alert käyttäjälle, kun tämä poistaa tehtävän" -
-    // funktiot. Funktio toteutuu painamalla Delete-näppäintä. (Tuomas)
     onPressDeleteButton() {
-        this.deleteNote();
-        this.alertNoteDeleted();
+        alert('You DELETED a task! Did you really complete it? Be honest!')
     }
 
 }
