@@ -9,10 +9,11 @@ export default class Note extends React.Component {
     // CheckBoxin klikkaaminen toteuttaa "checkBoxText"-funktion.
     // Funktio tarkistaa CheckBoxin tämänhetkisen staten, ja muuttaa sen käänteiseksi,
     // eli Truesta False ja Falsesta True. (Tuomas)
+
     constructor() {
         super();
         this.state = {
-            check: true
+            check: false
         }
     }
 
@@ -33,10 +34,13 @@ export default class Note extends React.Component {
 
                 <CheckBox style={styles.checkbox} value={this.state.check} onChange={()=> this.checkBoxTest() } />
 
-                <TouchableOpacity onPress={ this.painaTaskia.bind(this)} >
+
+                  <TouchableOpacity  onPress={ this.painaTaskia.bind(this)} >
                 <Text style={styles.noteText}>{this.props.val.date}</Text>
                 <Text style={styles.noteText}>{this.props.val.note}</Text>
-                </TouchableOpacity>
+                  </TouchableOpacity>
+
+
                 <TouchableOpacity onPress={this.props.deleteMethod} style={styles.noteDelete}>
                     <Text style={styles.noteDeleteText}>X</Text>
                 </TouchableOpacity>
@@ -50,15 +54,14 @@ export default class Note extends React.Component {
 const styles = StyleSheet.create({
     note: {
         position: 'relative',
+        flexDirection: 'row',
         padding: 20,
         paddingRight: 100,
         borderBottomWidth: 2,
         borderBottomColor: '#ededed',
     },
     noteText: {
-        paddingLeft: 20,
-        borderLeftWidth: 10,
-        borderLeftColor: '#E91E63',
+        paddingLeft: 10,
     },
     noteDelete: {
         position: 'absolute',
