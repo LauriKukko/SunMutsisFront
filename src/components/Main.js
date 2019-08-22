@@ -11,7 +11,12 @@ export default class Main extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            noteArray: [],
+            noteArray: [
+                {date: '2019/08/22', note: 'Tämä on todo YKSI',},
+                {date: '2019/08/22', note: 'Tämä on todo KAKSI'},
+                {date: '2019/08/22', note: 'Tämä on todo KOLME'},
+                {date: '2019/08/22', note: 'Tämä on todo NELJÄ'},
+            ],
             noteText: '',
         }
     }
@@ -21,7 +26,7 @@ export default class Main extends React.Component {
     render() {
         let notes = this.state.noteArray.map((val, key) => {
             return <Note key={key} keyval={key} val={val}
-                         deleteMethod={ () => this.deleteNote() } />
+                         deleteMethod={ () => this.onPressDeleteButton() } />
         });
 
         return (
@@ -40,7 +45,8 @@ export default class Main extends React.Component {
                     </TextInput>
                 </View>
 
-                <TouchableOpacity onPress={ this.addNote.bind(this) } style={styles.addButton}>
+                <TouchableOpacity onPress={ this.onPressAddButton.bind(this)  }
+                                  style={styles.addButton}>
                     <Text style={styles.addButtonText}> > </Text>
                 </TouchableOpacity>
 
@@ -48,7 +54,7 @@ export default class Main extends React.Component {
         );
     }
 
-
+    // Tehtävän lisäämisen toteuttava funktio. Tämän päivän päivämäärä luodaan automaattisesti (Tuomas)
     addNote() {
         if (this.state.noteText) {
 
@@ -64,9 +70,36 @@ export default class Main extends React.Component {
         }
     }
 
+    // Alert -ilmoitus, kun tehtävä on lisätty
+    alertNoteAdded() {
+        alert('You ADDED a NEW task!')
+    }
+
+    // "Lisää tehtävä" -nappulan painalluksesta toteutuva funktio, joka toteuttaa
+    // addNote- ja alertNoteAdded -funktiot (Tuomas)
+    onPressAddButton() {
+        this.addNote();
+        this.alertNoteAdded();
+    }
+
+    // Yksittäisen poistamisen toteuttava funktio (Tuomas)
     deleteNote(key) {
         this.state.noteArray.splice(key, 1);
         this.setState({ noteArray: this.state.noteArray })
+    }
+
+    // Alert -ilmoitus, kun tehtävä poistetaan (Tuomas)
+    alertNoteDeleted() {
+        alert('You DELETED a task! Did you really complete it? Be honest!')
+    }
+
+    // POISTAA TÄLLÄ HETKELLÄ AINA ENSIMMÄISEN TEHTÄVÄN
+    // Ilman alertia saan oikean tehtävän poistamisen toteutettua (Tuomas)
+    // Funktio yhdistää "Poista tehtävä" ja "Alert käyttäjälle, kun tämä poistaa tehtävän" -
+    // funktiot. Funktio toteutuu painamalla Delete-näppäintä. (Tuomas)
+    onPressDeleteButton() {
+        this.deleteNote();
+        this.alertNoteDeleted();
     }
 
 }
