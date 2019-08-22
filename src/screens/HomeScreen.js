@@ -1,14 +1,16 @@
 import React, {Component} from 'react';
-import { StyleSheet, View, Button} from 'react-native';
+import { StyleSheet, View, Button, BackHandler} from 'react-native';
 import NavBar from "../components/NavBar";
 import MainComponent from "../components/MainComponent";
 import Footer from "../components/Footer";
-import Main from "../components/Main";
+
+
 
 
 export default class HomeScreen extends Component {
 
     render() {
+
 
         const {navigate}=this.props.navigation;
     return (
@@ -32,5 +34,7 @@ const styles = StyleSheet.create({
         color: 'red'
     }
 });
+
+
 
 
