@@ -1,11 +1,13 @@
 import React, {Component}  from 'react';
 import {Text, StyleSheet, View, TouchableHighlight, Button} from 'react-native';
 
+
 export default class Footer extends Component{
     render() {
+        const { navigate } = this.props.navigation;
         return (
             <View>
-               <TouchableHighlight style={styles.addButton} underlayColor='#ff7043' onPress={()=>{console.log('pressed')}}>
+                <TouchableHighlight style={styles.addButton} underlayColor='#ff7043' onPress={()=>navigate('AddTask')}>
                     <Text style={{fontSize: 50, color: 'white'}}>+</Text>
                 </TouchableHighlight>
             </View>
