@@ -4,7 +4,7 @@ import {createStackNavigator, createAppContainer} from "react-navigation";
 import LoginScreen from "./LoginScreen";
 import HomeScreen from "./HomeScreen";
 import MenuScreen from "./MenuScreen";
-import AddTaskScreen from "./AddTaskScreen";
+// import AddTaskScreen from "./AddTaskScreen";
 
 
 const Navigation = createStackNavigator(
@@ -12,7 +12,7 @@ const Navigation = createStackNavigator(
         Login: LoginScreen,
         Home: HomeScreen,//tähän perään saa valumaan propseja. Selvitä.
         Menu: MenuScreen,
-        AddTask: AddTaskScreen,
+        // AddTask: AddTaskScreen,
     },
     {
         initialRouteName: 'Login',

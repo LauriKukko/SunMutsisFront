@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import { StyleSheet, View, Button, BackHandler} from 'react-native';
 import NavBar from "../components/NavBar";
-import MainComponent from "../components/MainComponent";
 import Footer from "../components/Footer";
+import Main from "../components/Main";
 import AddTaskScreen from "./AddTaskScreen";
+
 
 export default class HomeScreen extends Component {
 
@@ -15,7 +16,7 @@ export default class HomeScreen extends Component {
             <NavBar/>
             <Button onPress={()=>navigate('Menu')} title={'Menuscreenille'}/>
             {/*<Text style={styles.saatanallinenTeksti}>Saatana</Text>*/}
-            <MainComponent/>
+            <Main/>
             {/*<Text style={styles.saatanallinenTeksti}>Ystävä</Text>*/}
             <Footer {...this.props}/>
         </View>
