@@ -1,13 +1,14 @@
 import React, {Component}  from 'react';
-import {Text, StyleSheet, View, TouchableHighlight, Button} from 'react-native';
+import {Text, StyleSheet, View, TouchableHighlight} from 'react-native';
 
 
 export default class Footer extends Component{
     render() {
         const { navigate } = this.props.navigation;
+        const showEditButton = false;
         return (
             <View>
-                <TouchableHighlight style={styles.addButton} underlayColor='#ff7043' onPress={()=>navigate('AddTask')}>
+                <TouchableHighlight style={styles.addButton} underlayColor='#ff7043' onPress={()=>navigate('AddTask', {showEditButton: showEditButton})}>
                     <Text style={{fontSize: 50, color: 'white'}}>+</Text>
                 </TouchableHighlight>
             </View>
@@ -23,10 +24,10 @@ const styles = StyleSheet.create({
         height: 50,
         width: 50,
         borderRadius: 50,
-        alignItems: 'center',
+        alignItems: 'flex-start',
         justifyContent: 'center',
         position: 'absolute',
-        bottom: -140,
+        bottom: 0,
         // left: 0,
         right: 10,
         zIndex: 11,

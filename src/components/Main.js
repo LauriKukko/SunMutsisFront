@@ -10,9 +10,10 @@ export default class Main extends React.Component {
 
     // Näytettävät todo:t sekä niiden poistamisen toteuttava "D"-näppäin (Tuomas)
     render() {
+        const {navigate}=this.props.navigation;
         const tasks = this.props.tasks.map((val, key) => {
             return <Task key={key} keyval={key} val={val}
-                         deleteMethod={ () => this.onPressDeleteButton() } />
+                         deleteMethod={ () => this.onPressDeleteButton() } {...this.props}/>
         });
 
 

@@ -56,13 +56,28 @@ const options = {
 
 export default class AddTaskScreen extends Component {
 
-    state = {
-        nimi:"",
-        sisalto:"",
-        deadline:"",
-        sijainti:""
-    };
+    constructor(props) {
+        super(props);
+        const nimi = this.props.navigation.getParam('task', '');
+
+        this.state = {task: {
+            nimi: nimi,
+            sisalto:"",
+            deadline:"",
+            sijainti:""
+        }, isSaveButtonVisible: true,
+            isEditButtonVisible: false
+        }
+    }
+
+    componentDidMount() {
+        if (!this.props.navigation.getParam('showSaveAndAddPlaceButton', true)) {
+            this.setState({isSaveButtonVisible: false, isEditButtonVisible: true})
+        }
+    }
+
     render() {
+
         return(
             <View style={styles.container}>
                 <Form
@@ -72,10 +87,20 @@ export default class AddTaskScreen extends Component {
                     onChange={(text) => this.setState(text)}
                     value={this.state}
                 />
-                <Button
-                    title="Console.log"
-                    onPress={() => console.log(this.state)}
-                />
+                <View style={styles.viewStyles}>
+                    {(this.state.isEditButtonVisible) &&<Button
+                    title="Muokkaa"
+                    onPress={() => this.setState({isSaveButtonVisible: true, isEditButtonVisible: false}) }
+                    />}
+                    {(this.state.isSaveButtonVisible) && <Button
+                        title="Lisää paikka"
+                        onPress={() => console.log(this.state)}
+                    />}
+                    {(this.state.isSaveButtonVisible) && <Button
+                        title="Tallenna"
+                        onPress={() => console.log(this.state)}
+                    />}
+                </View>
             </View>
         );
     }
@@ -88,5 +113,9 @@ const styles = StyleSheet.create({
         padding: 20,
         backgroundColor: '#ffffff',
     },
+    viewStyles: {
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    }
 });
 
