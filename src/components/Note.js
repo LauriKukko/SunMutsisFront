@@ -28,14 +28,15 @@ export default class Note extends React.Component {
     }
 
     render() {
+        // const { navigate } = this.props.navigation;
         return (
 
             <View key={this.props.keyval} style={styles.note}>
 
                 <CheckBox style={styles.checkbox} value={this.state.check} onChange={()=> this.checkBoxTest() } />
 
-
-                  <TouchableOpacity  onPress={ this.painaTaskia.bind(this)} >
+                  <TouchableOpacity onPress={ this.painaTaskia.bind(this)} >
+                  {/*<TouchableOpacity onPress={()=> navigate('AddTask')} >*/}
                 <Text style={styles.noteText}>{this.props.val.date}</Text>
                 <Text style={styles.noteText}>{this.props.val.note}</Text>
                   </TouchableOpacity>

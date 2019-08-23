@@ -4,6 +4,7 @@ import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
 import AddTaskScreen from "./AddTaskScreen";
+import Note from "../components/Note";
 
 
 export default class HomeScreen extends Component {

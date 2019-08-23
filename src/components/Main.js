@@ -12,8 +12,8 @@ export default class Main extends React.Component {
         super(props);
         this.state = {
             noteArray: [
-                {date: '2019/8/22', note: 'Tämä on todo YKSI',},
-                {date: '2019/8/22', note: 'Tämä on todo KAKSI'},
+                {date: '1955/11/5', note: 'Marty yrittää iskeä omaa äitiään'},
+                {date: '2015/10/21', note: 'Palaa tulevaisuuteen',},
                 {date: '2019/8/22', note: 'Tämä on todo KOLME'},
             ],
             noteText: '',
@@ -28,26 +28,28 @@ export default class Main extends React.Component {
                          deleteMethod={ () => this.onPressDeleteButton() } />
         });
 
+
+
         return (
             <View>
                 <ScrollView style={styles.scrollContainer}>
                     {notes}
                 </ScrollView>
 
-                <View style={styles.footer}>
-                    <TextInput style={styles.textInput}
-                        onChangeText={(noteText) => this.setState({noteText})}
-                        value={this.state.noteText}
-                        placeholder='Kirjoita tähän todo'
-                        placeholderTextColor='white'
-                        underlindeColorAndroid='transparent'>
-                    </TextInput>
-                </View>
+                {/*<View style={styles.footer}>*/}
+                {/*    <TextInput style={styles.textInput}*/}
+                {/*        onChangeText={(noteText) => this.setState({noteText})}*/}
+                {/*        value={this.state.noteText}*/}
+                {/*        placeholder='Kirjoita tähän todo'*/}
+                {/*        placeholderTextColor='white'*/}
+                {/*        underlindeColorAndroid='transparent'>*/}
+                {/*    </TextInput>*/}
+                {/*</View>*/}
 
-                <TouchableOpacity onPress={ this.onPressAddButton.bind(this)  }
-                                  style={styles.addButton}>
-                    <Text style={styles.addButtonText}> > </Text>
-                </TouchableOpacity>
+                {/*<TouchableOpacity onPress={ this.onPressAddButton.bind(this)  }*/}
+                {/*                  style={styles.addButton}>*/}
+                {/*    <Text style={styles.addButtonText}> > </Text>*/}
+                {/*</TouchableOpacity>*/}
 
             </View>
         );
