@@ -33,6 +33,7 @@ export default class Note extends React.Component {
 
             <View key={this.props.keyval} style={styles.note}>
 
+
                 <CheckBox style={styles.checkbox} value={this.state.check} onChange={()=> this.checkBoxTest() } />
 
                   <TouchableOpacity onPress={ this.painaTaskia.bind(this)} >

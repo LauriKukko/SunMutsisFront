@@ -5,7 +5,7 @@ import {View, Text} from 'react-native';
 import Hamburger from 'react-native-hamburger';
 
 const Header = () => {
-    const { textStyle, viewStyle } = styles;
+    const { textStyle, viewStyle  } = styles;
 //Haasteena tässä on saada navigaatio toimimaan. Nappeja voi rakennella, mutta saako niillä liikkumista sivuilla,
     //sitä en vielä tiedä... (Lauri)
     return (
