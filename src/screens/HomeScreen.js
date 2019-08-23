@@ -12,8 +12,6 @@ export default class HomeScreen extends Component {
     return (
         <View>
             <NavBar/>
-            <Button onPress={()=>navigate('Menu')} title={'Menuscreenille'}/>
-            {/*<Text style={styles.saatanallinenTeksti}>Saatana</Text>*/}
             <Main tasks={tasks}/>
             {/*<Text style={styles.saatanallinenTeksti}>Ystävä</Text>*/}
             <Footer {...this.props}/>
