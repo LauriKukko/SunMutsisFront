@@ -3,7 +3,7 @@ import {Text, View, TouchableOpacity, StyleSheet, CheckBox} from 'react-native';
 
 
 // Propseina todo:n päivämäärä, "nimi" sekä delete-näppäin (Tuomas)
-export default class Note extends React.Component {
+export default class Task extends React.Component {
 
     //Constructor luotu pelkästään CheckBoxin toiminnallisuuden toteuttamisen vuoksi.
     // CheckBoxin klikkaaminen toteuttaa "checkBoxText"-funktion.
@@ -38,8 +38,8 @@ export default class Note extends React.Component {
 
                   <TouchableOpacity onPress={ this.painaTaskia.bind(this)} >
                   {/*<TouchableOpacity onPress={()=> navigate('AddTask')} >*/}
-                <Text style={styles.noteText}>{this.props.val.date}</Text>
-                <Text style={styles.noteText}>{this.props.val.note}</Text>
+                <Text style={styles.noteText}>{JSON.stringify(this.props.val._id)}</Text>
+                <Text style={styles.noteText}>{JSON.stringify(this.props.val.task)}</Text>
                   </TouchableOpacity>
 
 

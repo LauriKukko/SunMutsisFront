@@ -2,29 +2,16 @@ import React from 'react';
 import {Text, View, TextInput, ScrollView, TouchableOpacity, StyleSheet} from 'react-native';
 import { CheckBox } from 'react-native-elements'
 
-// Main- ja Note -luokat korvaavat aiemman MainComponent -luokan (Tuomas)
-// Note.js:ssä propseina näytettävien todo:n päivämäärä, "nimi" sekä delete-näppäin (Tuomas)
-import Note from './Note';
+// Main- ja Task -luokat korvaavat aiemman MainComponent -luokan (Tuomas)
+// Task.js:ssä propseina näytettävien todo:n päivämäärä, "nimi" sekä delete-näppäin (Tuomas)
+import Task from './Task';
 
 export default class Main extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            noteArray: [
-                {date: '1955/11/5', note: 'Marty yrittää iskeä omaa äitiään'},
-                {date: '2015/10/21', note: 'Palaa tulevaisuuteen',},
-                {date: '2019/8/22', note: 'Tämä on todo KOLME'},
-            ],
-            noteText: '',
-        }
-    }
-
     // Näytettävät todo:t sekä niiden poistamisen toteuttava "D"-näppäin (Tuomas)
     render() {
-        const tasks = this.props.tasks;
-        let notes = tasks.map((val, key) => {
-            return <Note key={key} keyval={key} val={val}
+        const tasks = this.props.tasks.map((val, key) => {
+            return <Task key={key} keyval={key} val={val}
                          deleteMethod={ () => this.onPressDeleteButton() } />
         });
 
@@ -33,7 +20,7 @@ export default class Main extends React.Component {
         return (
             <View>
                 <ScrollView style={styles.scrollContainer}>
-                    {notes}
+                    {tasks}
                 </ScrollView>
 
             </View>
