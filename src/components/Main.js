@@ -8,6 +8,18 @@ import Note from './Note';
 
 export default class Main extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            noteArray: [
+                {date: '1955/11/5', note: 'Marty yrittää iskeä omaa äitiään'},
+                {date: '2015/10/21', note: 'Palaa tulevaisuuteen',},
+                {date: '2019/8/22', note: 'Tämä on todo KOLME'},
+            ],
+            noteText: '',
+        }
+    }
+
     // Näytettävät todo:t sekä niiden poistamisen toteuttava "D"-näppäin (Tuomas)
     render() {
         const tasks = this.props.tasks;
@@ -16,11 +28,14 @@ export default class Main extends React.Component {
                          deleteMethod={ () => this.onPressDeleteButton() } />
         });
 
+
+
         return (
             <View>
                 <ScrollView style={styles.scrollContainer}>
                     {notes}
                 </ScrollView>
+
             </View>
         );
     }

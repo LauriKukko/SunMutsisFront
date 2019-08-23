@@ -1,16 +1,47 @@
 import React from 'react';
-import {Text, View, TouchableOpacity, StyleSheet} from 'react-native';
+import {Text, View, TouchableOpacity, StyleSheet, CheckBox} from 'react-native';
 
 
 // Propseina todo:n päivämäärä, "nimi" sekä delete-näppäin (Tuomas)
 export default class Note extends React.Component {
+
+    //Constructor luotu pelkästään CheckBoxin toiminnallisuuden toteuttamisen vuoksi.
+    // CheckBoxin klikkaaminen toteuttaa "checkBoxText"-funktion.
+    // Funktio tarkistaa CheckBoxin tämänhetkisen staten, ja muuttaa sen käänteiseksi,
+    // eli Truesta False ja Falsesta True. (Tuomas)
+
+    constructor() {
+        super();
+        this.state = {
+            check: false
+        }
+    }
+
+    checkBoxTest() {
+        this.setState({
+            check:!this.state.check
+        })
+    }
+
+    painaTaskia() {
+        alert('moro')
+    }
+
     render() {
+        // const { navigate } = this.props.navigation;
         return (
 
             <View key={this.props.keyval} style={styles.note}>
 
-                <Text style={styles.noteText}>{JSON.stringify(this.props.val._id)}</Text>
-                <Text style={styles.noteText}>{JSON.stringify(this.props.val.task)}</Text>
+
+                <CheckBox style={styles.checkbox} value={this.state.check} onChange={()=> this.checkBoxTest() } />
+
+                  <TouchableOpacity onPress={ this.painaTaskia.bind(this)} >
+                  {/*<TouchableOpacity onPress={()=> navigate('AddTask')} >*/}
+                <Text style={styles.noteText}>{this.props.val.date}</Text>
+                <Text style={styles.noteText}>{this.props.val.note}</Text>
+                  </TouchableOpacity>
+
 
                 <TouchableOpacity onPress={this.props.deleteMethod} style={styles.noteDelete}>
                     <Text style={styles.noteDeleteText}>X</Text>
@@ -25,15 +56,14 @@ export default class Note extends React.Component {
 const styles = StyleSheet.create({
     note: {
         position: 'relative',
+        flexDirection: 'row',
         padding: 20,
         paddingRight: 100,
         borderBottomWidth: 2,
         borderBottomColor: '#ededed',
     },
     noteText: {
-        paddingLeft: 20,
-        borderLeftWidth: 10,
-        borderLeftColor: '#E91E63',
+        paddingLeft: 10,
     },
     noteDelete: {
         position: 'absolute',
@@ -49,5 +79,8 @@ const styles = StyleSheet.create({
         color: 'white',
         fontWeight: 'bold',
         fontSize: 18,
+    },
+    checkbox: {
+        // backgroundColor: 'red',
     }
 });
