@@ -9,16 +9,18 @@ export default class HomeScreen extends Component {
     render() {
         const {navigate}=this.props.navigation;
         const tasks = this.props.navigation.getParam('tasks','ei tullu mitään');
+        const testi =  'testi';
     return (
         <View>
             <NavBar/>
-            <Main tasks={tasks}/>
+            <Main tasks={tasks} {...this.props}/>
             {/*<Text style={styles.saatanallinenTeksti}>Ystävä</Text>*/}
-            <Footer {...this.props}/>
+            <Footer testi={testi} {...this.props} />
         </View>
     );
 }};
-
+//etsi style joka hävittää buttonin
+//
 const styles = StyleSheet.create({
     text:{
         fontSize: 30
