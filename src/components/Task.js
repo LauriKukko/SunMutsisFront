@@ -23,12 +23,10 @@ export default class Task extends React.Component {
         })
     }
 
-    painaTaskia() {
-        alert('moro')
-    }
 
     render() {
-        // const { navigate } = this.props.navigation;
+        const {navigate}=this.props.navigation;
+        const showSaveAndAddPlaceButton = false;
         return (
 
             <View key={this.props.keyval} style={styles.note}>
@@ -36,10 +34,10 @@ export default class Task extends React.Component {
 
                 <CheckBox style={styles.checkbox} value={this.state.check} onChange={()=> this.checkBoxTest() } />
 
-                  <TouchableOpacity onPress={ this.painaTaskia.bind(this)} >
-                  {/*<TouchableOpacity onPress={()=> navigate('AddTask')} >*/}
+                  <TouchableOpacity onPress={() => navigate('AddTask',{id: JSON.stringify(this.props.val._id), task: this.props.val.task,
+                      showSaveAndAddPlaceButton: showSaveAndAddPlaceButton})} >
                 <Text style={styles.noteText}>{JSON.stringify(this.props.val._id)}</Text>
-                <Text style={styles.noteText}>{JSON.stringify(this.props.val.task)}</Text>
+                <Text style={styles.noteText}>{this.props.val.task}</Text>
                   </TouchableOpacity>
 
 
