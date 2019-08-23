@@ -1,6 +1,5 @@
 import React, {Component}  from 'react';
-import {Text, StyleSheet, View, TouchableHighlight} from 'react-native';
-
+import {Text, StyleSheet, View, TouchableHighlight, Button, TouchableOpacity} from 'react-native';
 
 export default class Footer extends Component{
     render() {
@@ -8,29 +7,29 @@ export default class Footer extends Component{
         const showEditButton = false;
         return (
             <View>
-                <TouchableHighlight style={styles.addButton} underlayColor='#ff7043' onPress={()=>navigate('AddTask', {showEditButton: showEditButton})}>
+                <TouchableOpacity style={styles.addButton} underlayColor='#ff7043' onPress={()=>navigate('AddTask')}>
                     <Text style={{fontSize: 50, color: 'white'}}>+</Text>
-                </TouchableHighlight>
+                </TouchableOpacity>
             </View>
         );
     }
 }
 
 const styles = StyleSheet.create({
-        addButton: {
+    addButton: {
         backgroundColor: '#56e4ff',
         borderColor: '#53d8ff',
         borderWidth: 1,
-        height: 50,
-        width: 50,
-        borderRadius: 50,
-        alignItems: 'flex-start',
+        height: 60,
+        width: 60,
+        borderRadius: 30,
+        alignItems: 'center',
         justifyContent: 'center',
         position: 'absolute',
-        bottom: 0,
+        bottom: 40,
         // left: 0,
         right: 10,
-        zIndex: 11,
+        zIndex: 20,
         // top: 480,
         // left: 290,
         shadowColor: "#000000",
